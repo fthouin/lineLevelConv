@@ -1,0 +1,345 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 1 2
+Title "Convertisseur de niveau de ligne"
+Date "2023-05-11"
+Rev "a"
+Comp ""
+Comment1 "20Hz - 20kHz"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+48V #PWR01
+U 1 1 64474D38
+P 2050 3250
+F 0 "#PWR01" H 2050 3100 50  0001 C CNN
+F 1 "+48V" H 2065 3423 50  0000 C CNN
+F 2 "" H 2050 3250 50  0001 C CNN
+F 3 "" H 2050 3250 50  0001 C CNN
+	1    2050 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 3250 2050 3400
+Wire Wire Line
+	2050 3400 2350 3400
+$Comp
+L power:GND #PWR02
+U 1 1 64475233
+P 1800 4000
+F 0 "#PWR02" H 1800 3750 50  0001 C CNN
+F 1 "GND" H 1805 3827 50  0000 C CNN
+F 2 "" H 1800 4000 50  0001 C CNN
+F 3 "" H 1800 4000 50  0001 C CNN
+	1    1800 4000
+	1    0    0    -1  
+$EndComp
+Text GLabel 4350 3750 2    50   Input ~ 0
+VREF
+Wire Wire Line
+	4350 3750 3850 3750
+Text GLabel 4350 3400 2    50   Input ~ 0
+V+
+Wire Wire Line
+	4350 3400 3850 3400
+$Sheet
+S 2350 3150 1500 950 
+U 64474AC4
+F0 "powerSplitter" 50
+F1 "powerSplitter.sch" 50
+F2 "48V" I L 2350 3400 50 
+F3 "GND" I L 2350 3650 50 
+F4 "VREF" O R 3850 3750 50 
+F5 "V+" O R 3850 3400 50 
+$EndSheet
+Text GLabel 6600 3200 1    50   Input ~ 0
+VREF
+Text GLabel 7250 3100 2    50   Input ~ 0
+V+
+Wire Wire Line
+	7250 3100 7150 3100
+Wire Wire Line
+	7150 3100 7150 3250
+$Comp
+L power:GND #PWR04
+U 1 1 6448D8CD
+P 7150 4000
+F 0 "#PWR04" H 7150 3750 50  0001 C CNN
+F 1 "GND" H 7150 3850 50  0000 C CNN
+F 2 "" H 7150 4000 50  0001 C CNN
+F 3 "" H 7150 4000 50  0001 C CNN
+	1    7150 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3200 6600 3300
+$Comp
+L Device:R_Small_US R3
+U 1 1 64491ED7
+P 7600 4200
+F 0 "R3" V 7395 4200 50  0000 C CNN
+F 1 "1k" V 7486 4200 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7600 4200 50  0001 C CNN
+F 3 "~" H 7600 4200 50  0001 C CNN
+	1    7600 4200
+	0    1    1    0   
+$EndComp
+Text GLabel 5750 3600 0    50   Input ~ 0
+SIGIN
+$Comp
+L Device:CP1_Small C2
+U 1 1 64494CAA
+P 8300 3700
+F 0 "C2" V 8528 3700 50  0000 C CNN
+F 1 "100u/25V" V 8437 3700 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 8300 3700 50  0001 C CNN
+F 3 "~" H 8300 3700 50  0001 C CNN
+	1    8300 3700
+	0    -1   -1   0   
+$EndComp
+Text GLabel 8900 3700 2    50   Output ~ 0
+SIGOUT
+$Comp
+L Amplifier_Operational:TL082 U1
+U 3 1 644A5941
+P 7250 3700
+F 0 "U1" H 7250 3550 50  0000 L CNN
+F 1 "TL082" H 7250 3450 50  0000 L CNN
+F 2 "" H 7250 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl081.pdf" H 7250 3700 50  0001 C CNN
+	3    7250 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1_Small C6
+U 1 1 644AA470
+P 7000 3250
+F 0 "C6" V 6850 3250 50  0000 C CNN
+F 1 "220u/50V" V 7000 3700 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 7000 3250 50  0001 C CNN
+F 3 "~" H 7000 3250 50  0001 C CNN
+	1    7000 3250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7100 3250 7150 3250
+Connection ~ 7150 3250
+Wire Wire Line
+	7150 3250 7150 3400
+$Comp
+L power:GND #PWR05
+U 1 1 644AB350
+P 6850 2800
+F 0 "#PWR05" H 6850 2550 50  0001 C CNN
+F 1 "GND" H 6855 2627 50  0000 C CNN
+F 2 "" H 6850 2800 50  0001 C CNN
+F 3 "" H 6850 2800 50  0001 C CNN
+	1    6850 2800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6850 2800 6850 2900
+Wire Wire Line
+	6850 3250 6900 3250
+$Comp
+L Device:C_Small C5
+U 1 1 644AC918
+P 7000 2900
+F 0 "C5" V 6771 2900 50  0000 C CNN
+F 1 "100n" V 6862 2900 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D12.5mm_W5.0mm_P7.50mm" H 7000 2900 50  0001 C CNN
+F 3 "~" H 7000 2900 50  0001 C CNN
+	1    7000 2900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7100 2900 7150 2900
+Wire Wire Line
+	7150 2900 7150 3100
+Connection ~ 7150 3100
+Wire Wire Line
+	6900 2900 6850 2900
+Connection ~ 6850 2900
+Wire Wire Line
+	6850 2900 6850 3250
+Wire Wire Line
+	8100 4050 8100 3700
+$Comp
+L Device:R_POT_TRIM_US RV1
+U 1 1 6459F410
+P 7950 4050
+F 0 "RV1" V 7745 4050 50  0000 C CNN
+F 1 "10k" V 7836 4050 50  0000 C CNN
+F 2 "Potentiometer_THT:Potentiometer_ACP_CA14-H2,5_Horizontal" H 7950 4050 50  0001 C CNN
+F 3 "~" H 7950 4050 50  0001 C CNN
+	1    7950 4050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7700 4200 7950 4200
+Wire Wire Line
+	6600 4700 6800 4700
+Text GLabel 6600 4700 0    50   Input ~ 0
+VREF
+$Comp
+L Amplifier_Operational:TL082 U1
+U 2 1 644A4637
+P 7250 3700
+F 0 "U1" H 7350 3950 50  0000 C CNN
+F 1 "TL082" H 7350 3850 50  0000 C CNN
+F 2 "" H 7250 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl081.pdf" H 7250 3700 50  0001 C CNN
+	2    7250 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 4200 6800 4200
+Wire Wire Line
+	6800 3800 6800 4200
+Wire Wire Line
+	6950 3800 6800 3800
+$Comp
+L Device:R_Small_US R2
+U 1 1 64490E16
+P 6800 4350
+F 0 "R2" H 6868 4396 50  0000 L CNN
+F 1 "10k" H 6868 4305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6800 4350 50  0001 C CNN
+F 3 "~" H 6800 4350 50  0001 C CNN
+	1    6800 4350
+	1    0    0    -1  
+$EndComp
+Connection ~ 6600 3600
+Wire Wire Line
+	6350 3600 6600 3600
+$Comp
+L Device:CP1_Small C1
+U 1 1 6448FBBC
+P 6250 3600
+F 0 "C1" V 6022 3600 50  0000 C CNN
+F 1 "10u/25V" V 6113 3600 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 6250 3600 50  0001 C CNN
+F 3 "~" H 6250 3600 50  0001 C CNN
+	1    6250 3600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 3600 6950 3600
+Wire Wire Line
+	6600 3500 6600 3600
+$Comp
+L Device:R_Small_US R1
+U 1 1 6448DFD8
+P 6600 3400
+F 0 "R1" H 6668 3446 50  0000 L CNN
+F 1 "100k" H 6668 3355 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6600 3400 50  0001 C CNN
+F 3 "~" H 6600 3400 50  0001 C CNN
+	1    6600 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J1
+U 1 1 6462E59F
+P 5850 3100
+F 0 "J1" V 5788 2912 50  0000 R CNN
+F 1 "IN" V 5697 2912 50  0000 R CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 5850 3100 50  0001 C CNN
+F 3 "~" H 5850 3100 50  0001 C CNN
+	1    5850 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5950 3300 5950 3600
+Wire Wire Line
+	5950 3600 5750 3600
+Wire Wire Line
+	5950 3600 6150 3600
+Connection ~ 5950 3600
+$Comp
+L power:GND #PWR03
+U 1 1 6463AE7F
+P 5100 3550
+F 0 "#PWR03" H 5100 3300 50  0001 C CNN
+F 1 "GND" H 5105 3377 50  0000 C CNN
+F 2 "" H 5100 3550 50  0001 C CNN
+F 3 "" H 5100 3550 50  0001 C CNN
+	1    5100 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3550 5100 3300
+Wire Wire Line
+	5100 3300 5850 3300
+$Comp
+L Connector:Conn_01x02_Female J2
+U 1 1 6463C2CC
+P 8700 4200
+F 0 "J2" V 8546 4248 50  0000 L CNN
+F 1 " OUT" V 8637 4248 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8700 4200 50  0001 C CNN
+F 3 "~" H 8700 4200 50  0001 C CNN
+	1    8700 4200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8400 3700 8600 3700
+Wire Wire Line
+	8600 3700 8600 4000
+Wire Wire Line
+	8600 3700 8900 3700
+Connection ~ 8600 3700
+$Comp
+L power:GND #PWR06
+U 1 1 64649041
+P 9650 4050
+F 0 "#PWR06" H 9650 3800 50  0001 C CNN
+F 1 "GND" H 9655 3877 50  0000 C CNN
+F 2 "" H 9650 4050 50  0001 C CNN
+F 3 "" H 9650 4050 50  0001 C CNN
+	1    9650 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9650 4050 9650 4000
+Wire Wire Line
+	9650 4000 8700 4000
+Wire Wire Line
+	7550 3700 8100 3700
+Wire Wire Line
+	6800 4200 6800 4250
+Connection ~ 6800 4200
+Wire Wire Line
+	6800 4450 6800 4700
+Connection ~ 8100 3700
+Wire Wire Line
+	8100 3700 8200 3700
+$Comp
+L Connector:Conn_01x02_Female J3
+U 1 1 64687088
+P 1350 3650
+F 0 "J3" H 1242 3325 50  0000 C CNN
+F 1 "POW" H 1242 3416 50  0000 C CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 1350 3650 50  0001 C CNN
+F 3 "~" H 1350 3650 50  0001 C CNN
+	1    1350 3650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1550 3650 1800 3650
+Wire Wire Line
+	1800 3650 1800 4000
+Connection ~ 1800 3650
+Wire Wire Line
+	1800 3650 2350 3650
+Wire Wire Line
+	1550 3550 1550 3400
+Wire Wire Line
+	1550 3400 2050 3400
+Connection ~ 2050 3400
+$EndSCHEMATC
