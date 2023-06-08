@@ -276,17 +276,6 @@ Wire Wire Line
 	5100 3550 5100 3300
 Wire Wire Line
 	5100 3300 5850 3300
-$Comp
-L Connector:Conn_01x02_Female J2
-U 1 1 6463C2CC
-P 8700 4200
-F 0 "J2" V 8546 4248 50  0000 L CNN
-F 1 " OUT" V 8637 4248 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8700 4200 50  0001 C CNN
-F 3 "~" H 8700 4200 50  0001 C CNN
-	1    8700 4200
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	8400 3700 8600 3700
 Wire Wire Line
@@ -307,8 +296,6 @@ F 3 "" H 9650 4050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9650 4050 9650 4000
-Wire Wire Line
-	9650 4000 8700 4000
 Wire Wire Line
 	7550 3700 8100 3700
 Wire Wire Line
@@ -342,4 +329,17 @@ Wire Wire Line
 Wire Wire Line
 	1550 3400 2050 3400
 Connection ~ 2050 3400
+$Comp
+L Connector:Conn_01x02_Female J2
+U 1 1 6463C2CC
+P 8600 4200
+F 0 "J2" V 8446 4248 50  0000 L CNN
+F 1 " OUT" V 8537 4248 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm" H 8600 4200 50  0001 C CNN
+F 3 "~" H 8600 4200 50  0001 C CNN
+	1    8600 4200
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	8700 4000 9650 4000
 $EndSCHEMATC
