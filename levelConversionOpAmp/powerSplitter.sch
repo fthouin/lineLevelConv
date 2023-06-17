@@ -235,4 +235,10 @@ Wire Wire Line
 Wire Wire Line
 	5350 3850 5550 3850
 Connection ~ 5550 3850
+Text Notes 6500 4000 0    50   ~ 0
+1.9V
+Text Notes 4300 3600 0    50   ~ 0
+4.5V
+Text Notes 4400 3200 0    50   ~ 0
+29.3V
 $EndSCHEMATC

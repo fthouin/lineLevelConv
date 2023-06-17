@@ -281,7 +281,7 @@ Wire Wire Line
 Wire Wire Line
 	8600 3700 8600 4000
 Wire Wire Line
-	8600 3700 8900 3700
+	8600 3700 8800 3700
 Connection ~ 8600 3700
 $Comp
 L power:GND #PWR06
@@ -341,5 +341,26 @@ F 3 "~" H 8600 4200 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	8700 4000 9650 4000
+	8700 4000 8800 4000
+$Comp
+L Device:R_Small_US R9
+U 1 1 64905615
+P 8800 3850
+F 0 "R9" V 8595 3850 50  0000 C CNN
+F 1 "4k7" V 8686 3850 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 8800 3850 50  0001 C CNN
+F 3 "~" H 8800 3850 50  0001 C CNN
+	1    8800 3850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8800 3700 8800 3750
+Connection ~ 8800 3700
+Wire Wire Line
+	8800 3700 8900 3700
+Wire Wire Line
+	8800 3950 8800 4000
+Connection ~ 8800 4000
+Wire Wire Line
+	8800 4000 9650 4000
 $EndSCHEMATC
